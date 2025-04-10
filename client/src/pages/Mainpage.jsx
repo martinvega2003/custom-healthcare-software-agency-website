@@ -5,6 +5,7 @@ import heroImg from '../images/hero.webp'
 import Home from './section/Home'
 import Techstack from '../components/Techstack'
 import About from './section/About'
+import Process from './section/Process'
 
 const Mainpage = () => {
   return (
@@ -12,6 +13,7 @@ const Mainpage = () => {
       <Home image={heroImg} />
       <Techstack />
       <About />
+      <Process />
     </main>
   )
 }
