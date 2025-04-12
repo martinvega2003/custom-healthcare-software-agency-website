@@ -8,7 +8,7 @@ const Home = ({ heading, subheading, image }) => {
   return (
     <section
       id="home"
-      className="relative bg-cover bg-center h-fit py-12 flex items-center overflow-hidden"
+      className="bg-white relative bg-cover bg-center h-fit py-12 flex items-center overflow-hidden"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-0">

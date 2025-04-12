@@ -7,6 +7,7 @@ import Techstack from '../components/Techstack'
 import About from './section/About'
 import Process from './section/Process'
 import Solutions from './section/Solutions'
+import Contact from './section/Contact'
 
 const Mainpage = () => {
   return (
@@ -16,6 +17,7 @@ const Mainpage = () => {
       <About />
       <Process />
       <Solutions />
+      <Contact />
     </main>
   )
 }
