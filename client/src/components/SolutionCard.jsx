@@ -10,11 +10,11 @@ const SolutionCard = ({ solution }) => {
       <img
         src={solution.image || 'https://via.placeholder.com/400x200'}
         alt={solution.title}
-        className="w-full h-48 object-cover"
+        className="w-full h-auto object-cover"
       />
 
       {/* Content */}
-      <div className="p-6 md:p-0">
+      <div className="p-6 md:p-0 mt-2">
 
         {/* Title */}
         <h3 className="text-xl font-semibold text-blue-600">{solution.title}</h3>
