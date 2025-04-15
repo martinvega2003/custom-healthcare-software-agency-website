@@ -2,61 +2,11 @@ import React from 'react';
 import SolutionCard from '../../components/SolutionCard';
 import { motion } from 'framer-motion';
 import { AiOutlineStar, AiOutlineHeart } from 'react-icons/ai';
-
-//Solution Images:
-import EducationPortalImage from '../../images/patient-education-portal.webp';
-import AppointmentReminderImage from '../../images/appointment-reminder.webp';
-import EmployeeSchedulingImage from '../../images/employee-scheduling.webp';
-import TrainingTrackerImage from '../../images/internal-training-tracker.webp';
-import FeedbackToolImage from '../../images/clinic-feedback.webp';
-import InventoryTrackerImage from '../../images/inventory-tracker.webp';
+import { solutionsData as solutions } from '../../data/solutionsData';
 
 const Solutions = () => {
 
-  const solutions = [
-    {
-      id: 1,
-      image: EducationPortalImage,
-      title: "Patient Education Portal",
-      description: "A web-based platform offering interactive articles, videos, and FAQs about procedures, treatments, and health tips. Enhances patient engagement and education without handling sensitive data.",
-      path: "/services/patient-education-portal"
-    },
-    {
-      id: 2,
-      image: AppointmentReminderImage,
-      title: "Appointment Reminder System",
-      description: "A tool enabling clinic administrators to schedule and send appointment reminders via email or SMS. Reduces patient no-shows and improves clinic efficiency with minimal data handling.",
-      path: "/services/appointment-reminder-system"
-    },
-    {
-      id: 3,
-      image: EmployeeSchedulingImage,
-      title: "Employee Scheduling App",
-      description: "An application for managing staff shifts, breaks, and rotations within a healthcare facility. Streamlines internal operations without involving patient data.",
-      path: "/services/employee-scheduling-app"
-    },
-    {
-      id: 4,
-      image: TrainingTrackerImage,
-      title: "Internal Training Tracker",
-      description: "A dashboard for tracking staff training, certifications, and workshop participation. Supports compliance and professional development within the clinic.",
-      path: "/services/internal-training-tracker"
-    },
-    {
-      id: 5,
-      image: FeedbackToolImage,
-      title: "Clinic Feedback Collection Tool",
-      description: "A system for collecting anonymous patient feedback post-appointments. Enhances clinic services through patient insights without requiring user accounts or sensitive data.",
-      path: "/services/clinic-feedback-tool"
-    },
-    {
-      id: 6,
-      image: InventoryTrackerImage,
-      title: "Inventory Tracker for Small Clinics",
-      description: "A tool to monitor and manage clinic supplies, alerting staff when items are low. Improves operational efficiency without involving patient information.",
-      path: "/services/inventory-tracker"
-    }
-  ];
+  
 
   return (
     <section id="services" className="relative bg-gray-50 py-16">
