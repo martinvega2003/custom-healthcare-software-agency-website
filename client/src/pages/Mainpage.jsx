@@ -8,6 +8,8 @@ import About from './section/About'
 import Process from './section/Process'
 import Solutions from './section/Solutions'
 import Contact from './section/Contact'
+import FAQs from './section/FAQs'
+import AppointmentBookingForm from '../components/AppointmentBookingForm'
 
 const Mainpage = () => {
   return (
@@ -18,6 +20,8 @@ const Mainpage = () => {
       <Process />
       <Solutions />
       <Contact />
+      <AppointmentBookingForm />
+      <FAQs />
     </main>
   )
 }
