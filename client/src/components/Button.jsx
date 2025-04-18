@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ children, onClick, type = "button", variant = "primary", className }) => {
+const Button = ({ children, onClick, type = "button", variant = "primary", icon, className }) => {
   const baseClasses = "px-4 py-2 rounded-lg font-semibold transition duration-200 cursor-pointer " + className;
   const variants = {
     primary: "bg-blue-500 text-white hover:bg-blue-800",
@@ -22,7 +22,7 @@ const Button = ({ children, onClick, type = "button", variant = "primary", class
       onClick={onClick}
       className={`${baseClasses} ${variants[variant]}`}
     >
-      {children}
+      {children} {icon && <span>{icon}</span>}
     </button>
   );
 };
