@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaAws, FaGithub } from 'react-icons/fa';
+import { SiPostgresql } from 'react-icons/si';
 
 const Techstack = () => {
   const techstack = [
@@ -8,8 +9,9 @@ const Techstack = () => {
     { id: 3, Icon: FaJs, tech: 'JavaScript' },
     { id: 4, Icon: FaReact, tech: 'React' },
     { id: 5, Icon: FaNodeJs, tech: 'Node.js' },
-    { id: 6, Icon: FaAws, tech: 'AWS' },
-    { id: 7, Icon: FaGithub, tech: 'GitHub' },
+    { id: 6, Icon: SiPostgresql, tech: 'PostgreSQL' },
+    { id: 7, Icon: FaAws, tech: 'AWS' },
+    { id: 8, Icon: FaGithub, tech: 'GitHub' },
   ];
 
   return (
@@ -19,13 +21,13 @@ const Techstack = () => {
           Built From The Ground Up With
           <strong className='italic underline'> The Best Technologies</strong>
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-8 items-center justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-center">
           {techstack.map((tech) => (
             <div
               key={tech.id}
-              className="flex flex-col items-center justify-center gap-2 bg-white hover:bg-blue-800 text-blue-500 hover:text-white text-lg md:text-2xl lg:text-5xl shadow-md rounded-lg p-4 hover:-translate-y-1 cursor-pointer transition duration-300"
+              className="flex flex-col items-center justify-center gap-2 bg-white hover:bg-blue-800 text-blue-500 hover:text-white text-lg md:text-2xl lg:text-5xl shadow-md rounded-lg p-4 hover:-translate-y-1 cursor-pointer transition duration-300 group"
             >
-              <tech.Icon />
+              <tech.Icon className='transition-transform duration-1000 group-hover:-rotate-360' />
               <span className="text-sm font-semibold">{tech.tech}</span>
             </div>
           ))}

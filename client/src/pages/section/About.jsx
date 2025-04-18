@@ -4,7 +4,7 @@ import image from "../../images/about.png";
 const About = () => {
   
   return (
-    <section id='about' className="bg-gray-50 py-16">
+    <section id='about' className="relative z-20 bg-gray-50 py-16">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -24,16 +24,17 @@ const About = () => {
               alt="Our Clinic"
             />
           </div>
-          <div className="lg:w-1/2 mt-8 lg:mt-0 p-6 border-2 border-blue-500 rounded-br-[100px]">
-            <h3 className="text-2xl font-semibold text-blue-500">
+          <div className="relative bg-blue-500 lg:w-1/2 mt-8 lg:mt-0 p-6 rounded-br-[100px] shadow-2xl group cursor-pointer">
+            <div className="absolute -z-10 -inset-[2px] border-2 border-blue-800 rounded-br-[100px] translate-x-2 translate-y-2 group-hover:translate-0 transition duration-300"></div>
+            <h3 className="text-2xl font-semibold text-white">
               My Story and Values
             </h3>
-            <p className="text-gray-700 mt-4 leading-relaxed">
+            <p className="text-gray-100 mt-4 leading-relaxed">
               A 21 years old Computer Science Student, a year ahead from being a <strong>Computer Scientist </strong> 
               who is passionate about technology and its potential to transform lives. 
               I'm focused on finding real-world problems and building innovative solutions to address them.
             </p>
-            <p className="text-gray-700 mt-4 leading-relaxed">
+            <p className="text-gray-100 mt-4 leading-relaxed">
               My journey in computer science has been driven by a desire to create meaningful impact
               through technology. I have worked on various projects that have honed my skills in software
               development, problem-solving, and teamwork.
