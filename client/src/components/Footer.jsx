@@ -65,7 +65,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Book a Call</h3>
             <p>Schedule a call with us to discuss your project.</p>
-            <Button variant="success" className="mt-4">
+            <Button variant="success" isBookingButton={true} className="mt-4">
               Book Now
             </Button>
           </div>

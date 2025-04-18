@@ -54,7 +54,7 @@ const Home = ({ heading, subheading, image }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            <Button onClick={() => redirectTo("/booking")} variant="primary">
+            <Button isBookingButton={true} variant="primary">
               Book Appointment
             </Button>
           </motion.div>

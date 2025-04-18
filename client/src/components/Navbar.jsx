@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="p-4 md:p-0 flex justify-center items-center md:ml-6">
-          <Button variant="outline" onClick={() => redirectTo("/booking")}>
+          <Button variant="outline" isBookingButton={true}>
             Book Appointment
           </Button>
         </div>
