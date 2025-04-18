@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaCogs } from 'react-icons/fa';
 import Button from './Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation(); // Get the current route
 
   return (
     <nav className="fixed top-0 z-50 w-full h-fit">
@@ -30,9 +31,12 @@ const Navbar = () => {
             <li className="text-gray-700 hover:text-blue-600 text-lg py-2 px-4 md:py-0 hover:-translate-y-0.5 transition duration-300">
               <a href="#about">About</a>
             </li>
-            <li className="text-gray-700 hover:text-blue-600 text-lg py-2 px-4 md:py-0 hover:-translate-y-0.5 transition duration-300">
-              <a href="#services">Services</a>
-            </li>
+            {/* Conditionally render the Services link if the user is in the main page */}
+            {location.pathname === '/' && (
+              <li className="text-gray-700 hover:text-blue-600 text-lg py-2 px-4 md:py-0 hover:-translate-y-0.5 transition duration-300">
+                <a href="#services">Services</a>
+              </li>
+            )}
             <li className="text-gray-700 hover:text-blue-600 text-lg py-2 px-4 md:py-0 hover:-translate-y-0.5 transition duration-300">
               <a href="#contact">Contact</a>
             </li>
