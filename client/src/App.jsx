@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Mainpage from './pages/Mainpage'
 import Footer from './components/Footer'
 import SolutionPage from './pages/SolutionPage'
+import BookingPage from './pages/Bookingpage'
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
         <Navbar />
           <Routes>
             <Route path='/' element={<Mainpage />} />
+            <Route path='/booking' element={<BookingPage />} />
             {solutions.map((solution) => (
               <Route key={solution.id} path={solution.path} element={<SolutionPage solution={solution} />} />
             ))}
