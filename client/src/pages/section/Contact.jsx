@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 
 const Contact = () => {
   return (
-    <section className="relative py-16">
+    <section id='contact' className="relative py-16">
       {/* Background Image Layer */}
       <div
         className="fixed z-0 inset-0 bg-fixed bg-cover bg-center bg-no-repeat opacity-50"

@@ -8,10 +8,12 @@ import FAQs from './section/FAQs'
 
 const BookingPage = () => {
   return (
-    <div className='w-full'>
+    <div id='home' className='w-full'>
         <AppointmentBookingForm />
         <Techstack />
-        <Offer />
+        <div id='about' className="w-full">
+          <Offer />
+        </div>
         <Process />
         <Contact />
         <FAQs />

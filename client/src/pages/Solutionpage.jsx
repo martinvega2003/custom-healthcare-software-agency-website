@@ -66,7 +66,7 @@ const SolutionPage = ({solution}) => {
             </div>
           </div>
 
-          <div className="w-full">
+          <div id='services' className="w-full">
               <Offer />
           </div>
           <div className="w-full">
