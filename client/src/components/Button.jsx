@@ -1,6 +1,7 @@
 import React from "react";
+import useRedirect from "./useRedirect";
 
-const Button = ({ children, onClick, type = "button", variant = "primary", icon, className }) => {
+const Button = ({ children, onClick, isBookingButton = false, type = "button", variant = "primary", icon, className }) => {
   const baseClasses = "px-4 py-2 rounded-lg font-semibold transition duration-200 cursor-pointer " + className;
   const variants = {
     primary: "bg-blue-500 text-white hover:bg-blue-800",
@@ -15,11 +16,12 @@ const Button = ({ children, onClick, type = "button", variant = "primary", icon,
     outline: "border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white",
     none: '',
   };
+  const redirectTo = useRedirect();
 
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick={isBookingButton ? onClick = () => redirectTo("/booking") : onClick ? onClick : null}
       className={`${baseClasses} ${variants[variant]}`}
     >
       {children} {icon && <span>{icon}</span>}
