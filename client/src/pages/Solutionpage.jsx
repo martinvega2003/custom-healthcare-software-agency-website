@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Home from './section/Home'
 import Techstack from '../components/Techstack'
+import Offer from './section/Offer'
 import Process from './section/Process'
 import Contact from './section/Contact'
 import AppointmentBookingForm from '../components/AppointmentBookingForm'
@@ -65,6 +66,16 @@ const SolutionPage = ({solution}) => {
             </div>
           </div>
 
+          <div className="w-full">
+              <Offer />
+          </div>
+          <div className="w-full">
+              <Process />
+          </div>
+          <div className="w-full">
+              <AppointmentBookingForm />
+          </div>
+
           {/* FAQs Section */}
           <div className="w-full bg-gray-800 text-white py-16 px-8">
             <div className="w-full flex flex-col lg:flex-row-reverse justify-between items-center lg:items-start">
@@ -109,12 +120,6 @@ const SolutionPage = ({solution}) => {
             </div>
           </div>
             
-          <div className="w-full">
-              <AppointmentBookingForm />
-          </div>
-          <div className="w-full">
-              <Process />
-          </div>
           <div id='contact' className='w-full'>
               <Contact />
           </div>

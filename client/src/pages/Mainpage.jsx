@@ -5,6 +5,7 @@ import heroImg from '../images/hero.webp'
 import Home from './section/Home'
 import Techstack from '../components/Techstack'
 import About from './section/About'
+import Offer from './section/Offer'
 import Process from './section/Process'
 import Solutions from './section/Solutions'
 import Contact from './section/Contact'
@@ -17,6 +18,7 @@ const Mainpage = () => {
       <Home image={heroImg} />
       <Techstack />
       <About />
+      <Offer />
       <Process />
       <Solutions />
       <Contact />
