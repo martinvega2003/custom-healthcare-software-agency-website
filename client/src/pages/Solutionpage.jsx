@@ -6,7 +6,7 @@ import Contact from './section/Contact'
 import AppointmentBookingForm from '../components/AppointmentBookingForm'
 import Button from '../components/Button'
 import AppBookingImage from '../images/appointment-booking-image-4.webp'
-import { FaExclamation } from 'react-icons/fa'
+import { FaExclamation, FaCalendar } from 'react-icons/fa'
 
 const SolutionPage = ({solution}) => {
   const [openFAQ, setOpenFAQ] = useState(null)
@@ -29,7 +29,7 @@ const SolutionPage = ({solution}) => {
       <div className='relative w-full h-fit flex justify-start items-stretch'>
 
         {/* Content */}
-        <div className="w-full lg:w-4/5 h-fit flex flex-col justify-start items-center">
+        <div className="w-full xl:w-4/5 h-fit flex flex-col justify-start items-center">
 
           {/* Description Section */}
           <div id='about' className="relative bg-white text-gray-800 text-left py-20 px-4 sm:px-16 border-b-2 border-blue-500">
@@ -106,10 +106,10 @@ const SolutionPage = ({solution}) => {
         </div>
 
         {/* Appointment Booking Button */}
-        <div className="relative w-1/5 bg-white text-center hidden lg:flex justify-center items-start">
-          <div className="sticky top-40 p-3 mt-12 flex flex-col justify-start items-center gap-2">
+        <div className="relative w-1/5 bg-white text-center p-2 hidden xl:flex justify-center items-start">
+          <div className="sticky top-28 p-3 flex flex-col justify-start items-center gap-2 border border-blue-500 rounded-lg">
             <img src={AppBookingImage ? AppBookingImage : ''} alt="Appointment Booking Image" className='rounded-lg' />
-            <Button variant='outline' className='w-full'>
+            <Button variant='outline' icon={<FaCalendar />} className='w-full text-sm flex items-center gap-2'>
               Book an Appointment
             </Button>
           </div>
