@@ -7,12 +7,14 @@ import Mainpage from './pages/Mainpage'
 import Footer from './components/Footer'
 import SolutionPage from './pages/SolutionPage'
 import BookingPage from './pages/Bookingpage'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <ThemeModeProvider>
+        <ScrollToTop />
         <Navbar />
           <Routes>
             <Route path='/' element={<Mainpage />} />
