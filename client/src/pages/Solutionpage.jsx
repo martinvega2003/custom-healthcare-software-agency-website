@@ -6,14 +6,15 @@ import Contact from './section/Contact'
 import AppointmentBookingForm from '../components/AppointmentBookingForm'
 import Button from '../components/Button'
 import AppBookingImage from '../images/appointment-booking-image-4.webp'
-import { FaExclamation, FaCalendar } from 'react-icons/fa'
+import FAQsImage from '../images/solution-page-faqs-image.webp'
+import { FaExclamation, FaCalendar, FaMinus, FaPlus } from 'react-icons/fa'
 
 const SolutionPage = ({solution}) => {
-  const [openFAQ, setOpenFAQ] = useState(null)
-
-  const handleFAQClick = (index) => {
-    setOpenFAQ(prevIndex => (prevIndex === index ? null : index))
-  }
+  const [openQuestion, setOpenQuestion] = useState(null);
+  
+  const toggleQuestion = (index) => {
+    setOpenQuestion((prev) => (prev === index ? null : index));
+  };
 
   return (
     <section>
@@ -65,31 +66,45 @@ const SolutionPage = ({solution}) => {
           </div>
 
           {/* FAQs Section */}
-          <div className="w-full bg-blue-700 text-white py-16 px-8">
+          <div className="w-full bg-gray-800 text-white py-16 px-8">
             <div className="w-full flex flex-col lg:flex-row-reverse justify-between items-center lg:items-start">
               <div className="w-full lg:w-1/2 lg:ml-20">
                 <h3 className="text-3xl mb-6">Frequently Asked Questions</h3>
-                  {solution.faqs.map((faq, index) => (
-                    <div 
-                      key={index} 
-                      className="mb-4 cursor-pointer" 
-                      onClick={() => handleFAQClick(index)}
-                    >
-                      <div className="flex justify-between items-center py-4 border-b border-white">
-                        <span className="text-xl">{faq.question}</span>
-                        <span className="text-2xl">{openFAQ === index ? '-' : '+'}</span>
-                      </div>
-                      <div 
-                        className={`overflow-hidden transition-all duration-300 ${openFAQ === index ? 'max-h-96' : 'max-h-0'}`}
-                        style={{maxHeight: openFAQ === index ? '400px' : '0'}}
+                <div className="space-y-4">
+                  {solution.faqs.map((faq, index) => {
+                    const isOpen = openQuestion === index;
+                    return (
+                      <div
+                        key={index}
+                        onClick={() => toggleQuestion(index)}
+                        className={`mb-4 cursor-pointer border-white rounded-lg border-2 transition-all duration-300 ease-in-out ${
+                          isOpen ? 'bg-blue-500 text-white' : ''
+                        } p-4 rounded-lg hover:bg-blue-500 hover:text-white`}
                       >
-                        <p className="text-gray-300 mt-2">{faq.answer}</p>
+                        <div
+                          className="flex justify-between items-center cursor-pointer"
+                        >
+                          <h4 className="text-lg font-medium text-white">{faq.question}</h4>
+                          {isOpen ? (
+                            <FaMinus className="text-white" />
+                          ) : (
+                            <FaPlus className="text-white" />
+                          )}
+                        </div>
+                        <div
+                          className={`overflow-hidden transition-all ${
+                            isOpen ? "max-h-screen mt-4 border-t-2 border-white pt-2" : "max-h-0"
+                          }`}
+                        >
+                          <p className="text-sm text-gray-200">{faq.answer}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
+                </div>
               </div>
               <div className="w-full lg:w-1/2 mt-8 lg:mt-0 rounded-3xl overflow-hidden">
-                <img src={"https://via.placeholder.com/500x400"} alt="Service" className="w-full h-full object-cover" />
+                <img src={FAQsImage ? FAQsImage : "https://via.placeholder.com/500x400"} alt="Service" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
