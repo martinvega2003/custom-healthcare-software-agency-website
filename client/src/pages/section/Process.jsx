@@ -26,7 +26,7 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="bg-blue-600 py-16">
+    <section className="bg-blue-600 dark:bg-blue-900 py-16 transition-colors duration-300">
       <div className="container mx-auto px-6 lg:px-16">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -43,14 +43,14 @@ const Process = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-blue-500 hover:bg-white text-white hover:text-blue-500 rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 cursor-pointer transition duration-300 group"
+              className="bg-blue-500 hover:bg-white dark:hover:bg-blue-800 text-white hover:text-blue-500 dark:hover:text-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 cursor-pointer transition duration-300 group"
             >
               {/* Icon */}
               <div className="mb-4 text-4xl">{step.icon}</div>
               {/* Title */}
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
               {/* Description */}
-              <p className="text-blue-200 group-hover:text-zinc-500">{step.description}</p>
+              <p className="text-blue-200 group-hover:text-zinc-500 dark:group-hover:text-blue-200">{step.description}</p>
             </div>
           ))}
         </div>
