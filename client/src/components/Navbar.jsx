@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { FaBars, FaTimes, FaCogs } from 'react-icons/fa';
+import React, { useState, useContext } from 'react';
+import { FaBars, FaTimes, FaCogs, FaSun, FaMoon } from 'react-icons/fa';
 import Button from './Button';
+import { ThemeModeContext } from '../context/ThemeModeContext';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation(); // Get the current route
+
+  const { darkMode, setDarkMode } = useContext(ThemeModeContext); // Access dark mode context
 
   return (
     <nav className="fixed top-0 z-50 w-full h-fit">
@@ -17,9 +20,20 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Hamburger Icon */}
-        <div className="md:hidden text-2xl text-blue-600 cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        {/* Buttons */}
+        <div className="md:hidden flex justify-center items-center gap-4">
+          {/* Theme Toggle Button */}
+          <button
+            className={`text-2xl text-gray-700 ${darkMode ? 'hover:text-yellow-600 hover:border-yellow-600' : 'hover:text-blue-600 hover:border-blue-600'} transition duration-300 cursor-pointer`}
+            onClick={() => setDarkMode(!darkMode)}
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+
+          {/* Hamburger Icon */}
+          <div className="text-2xl text-blue-600 cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
 
         {/* Links & Button */}
@@ -41,7 +55,13 @@ const Navbar = () => {
               <a href="#contact">Contact</a>
             </li>
           </ul>
-          <div className="p-4 md:p-0 flex justify-center items-center md:ml-6">
+          <div className="p-4 md:p-0 flex justify-center items-center gap-4 md:ml-6">
+            <button
+              className={`hidden md:block p-2 border rounded-lg text-2xl text-gray-700 ${darkMode ? 'hover:text-yellow-600 hover:border-yellow-600' : 'hover:text-blue-600 hover:border-blue-600'} transition duration-300 cursor-pointer`}
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </button>
             <Button variant="outline" isBookingButton={true}>
               Book Appointment
             </Button>
