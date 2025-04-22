@@ -98,11 +98,11 @@ const SolutionPage = ({solution}) => {
                         <div
                           className="flex justify-between items-center cursor-pointer"
                         >
-                          <h4 className="text-lg font-medium text-white">{faq.question}</h4>
+                          <h4 className="max-w-4/5 text-md lg:text-lg xl:text-xl font-medium text-white">{faq.question}</h4>
                           {isOpen ? (
-                            <FaMinus className="text-white" />
+                            <FaMinus className="w-4 sm:w-6 aspect-square text-white" />
                           ) : (
-                            <FaPlus className="text-white" />
+                            <FaPlus className="w-4 sm:w-6 aspect-square text-white" />
                           )}
                         </div>
                         <div
