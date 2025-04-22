@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-10">
+    <footer className="bg-gray-800 dark:bg-black text-white py-10 transition-colors duration-300">
       <div className="container mx-auto px-6 lg:px-16">
         {/* Top Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-6">
