@@ -30,11 +30,11 @@ const FAQs = () => {
                     <div
                       className="flex justify-between items-center cursor-pointer"
                     >
-                      <h4 className={`text-lg font-medium ${isOpen ? 'text-white' : 'text-gray-800 dark:text-white group-hover:text-white'} transition-colors duration-300`}>{faq.question}</h4>
+                      <h4 className={`max-w-4/5 text-md lg:text-lg xl:text-xl font-medium ${isOpen ? 'text-white' : 'text-gray-800 dark:text-white group-hover:text-white'} transition-colors duration-300`}>{faq.question}</h4>
                       {isOpen ? (
-                        <FaMinus className={isOpen ? 'text-white' : 'text-gray-800 dark:text-white group-hover:text-white'} />
+                        <FaMinus className='w-4 sm:w-6 aspect-square text-white' />
                       ) : (
-                        <FaPlus className="text-gray-800 dark:text-white group-hover:text-white" />
+                        <FaPlus className="w-4 sm:w-6 aspect-square text-gray-800 dark:text-white group-hover:text-white" />
                       )}
                     </div>
                     <div
