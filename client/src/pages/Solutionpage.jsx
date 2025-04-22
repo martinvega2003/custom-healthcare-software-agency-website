@@ -39,7 +39,7 @@ const SolutionPage = ({solution}) => {
           {/* Description Section */}
           <div id='about' className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white text-left py-20 px-4 sm:px-16 border-b-2 border-blue-500 dark:border-blue-800 transition-colors duration-300">
             <div className="absolute inset-0 opacity-40">
-              <div className="relative left-8 top-13 w-20 h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
+              <div className="relative left-2 sm:left-8 top-16 sm:top-13 w-12 sm:w-20 h-8 sm:h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
             </div>
             <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 dark:text-blue-400 mb-6 transition-colors duration-300">
               A Brief Overview of Our Solution
@@ -52,7 +52,7 @@ const SolutionPage = ({solution}) => {
           {/* Features Section */}
           <div className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white text-left py-20 px-4 sm:px-16 transition-colors duration-300">
             <div className="absolute inset-0 opacity-40">
-              <div className="relative left-8 top-13 w-28 h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
+              <div className="relative left-2 sm:left-8 top-16 sm:top-13 w-16 sm:w-28 h-8 sm:h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
             </div>
             <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 dark:text-blue-400 mb-6 transition-colors duration-300">
               How Does It Works?
@@ -132,7 +132,7 @@ const SolutionPage = ({solution}) => {
         <div className="relative w-1/5 bg-white dark:bg-black text-center p-2 hidden xl:flex justify-center items-start transition-colors duration-300">
           <div className="sticky top-28 bg-transparent dark:bg-gray-800 p-3 flex flex-col justify-start items-center gap-2 border border-blue-500 dark:border-gray-800 rounded-lg transition-colors duration-300">
             <img src={AppBookingImage ? AppBookingImage : ''} alt="Appointment Booking Image" className='rounded-lg' />
-            <Button variant={darkMode ? 'light' : 'outline'} icon={<FaCalendar />} className={`w-full text-sm flex items-center gap-2 ${darkMode ? 'border-2 border-transparent' : ''}`}>
+            <Button isBookingButton={true} variant={darkMode ? 'light' : 'outline'} icon={<FaCalendar />} className={`w-full text-sm flex items-center gap-2 ${darkMode ? 'border-2 border-transparent' : ''}`}>
               Book an Appointment
             </Button>
           </div>
