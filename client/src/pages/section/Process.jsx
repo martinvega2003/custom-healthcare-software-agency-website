@@ -1,28 +1,5 @@
 import React from 'react';
-import { FaComments, FaClipboardList, FaCogs, FaRocket } from 'react-icons/fa';
-
-const steps = [
-  {
-    icon: <FaComments />,
-    title: "Initial Consultation",
-    description: "We begin with a thorough discussion to understand your needs, goals, and project requirements, ensuring a tailored approach from the start."
-  },
-  {
-    icon: <FaClipboardList />,
-    title: "Strategic Planning",
-    description: "A comprehensive project plan is developed, outlining timelines, resources, and milestones to keep the project on track and transparent."
-  },
-  {
-    icon: <FaCogs />,
-    title: "Dev & Implementation",
-    description: "Your software solution is designed and implemented in your processes and systems, utilizing cutting-edge technologies and best practices for quality and efficiency."
-  },
-  {
-    icon: <FaRocket />,
-    title: "Deployment & Support",
-    description: "After rigorous testing, we deploy your solution and provide ongoing support to ensure seamless integration and optimal performance."
-  },
-];
+import { stepsData as steps } from '../../data/stepsData';
 
 const Process = () => {
   return (
@@ -46,7 +23,7 @@ const Process = () => {
               className="bg-blue-500 hover:bg-white dark:hover:bg-blue-800 text-white hover:text-blue-500 dark:hover:text-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 cursor-pointer transition duration-300 group"
             >
               {/* Icon */}
-              <div className="mb-4 text-4xl">{step.icon}</div>
+              <div className="mb-4 text-4xl"><step.icon /></div>
               {/* Title */}
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
               {/* Description */}

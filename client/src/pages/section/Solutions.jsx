@@ -6,8 +6,6 @@ import { solutionsData as solutions } from '../../data/solutionsData';
 
 const Solutions = () => {
 
-  
-
   return (
     <section id="services" className="relative bg-gray-50 dark:bg-gray-900 py-16 transition-colors duration-300">
       <div className="absolute z-0 inset-0 h-full opacity-50">

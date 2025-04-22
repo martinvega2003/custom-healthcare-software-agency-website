@@ -1,18 +1,7 @@
 import React from 'react';
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaAws, FaGithub } from 'react-icons/fa';
-import { SiPostgresql } from 'react-icons/si';
+import { techstackData as techstack } from '../data/techstackData';
 
 const Techstack = () => {
-  const techstack = [
-    { id: 1, Icon: FaHtml5, tech: 'HTML5' },
-    { id: 2, Icon: FaCss3, tech: 'CSS3' },
-    { id: 3, Icon: FaJs, tech: 'JavaScript' },
-    { id: 4, Icon: FaReact, tech: 'React' },
-    { id: 5, Icon: FaNodeJs, tech: 'Node.js' },
-    { id: 6, Icon: SiPostgresql, tech: 'PostgreSQL' },
-    { id: 7, Icon: FaAws, tech: 'AWS' },
-    { id: 8, Icon: FaGithub, tech: 'GitHub' },
-  ];
 
   return (
     <section className="py-12 bg-blue-500 dark:bg-blue-900 transition-colors duration-300">
