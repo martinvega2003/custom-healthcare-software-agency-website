@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Home from './section/Home'
 import Techstack from '../components/Techstack'
 import Offer from './section/Offer'
@@ -8,9 +8,12 @@ import AppointmentBookingForm from '../components/AppointmentBookingForm'
 import Button from '../components/Button'
 import AppBookingImage from '../images/appointment-booking-image-4.webp'
 import FAQsImage from '../images/solution-page-faqs-image.webp'
+import { ThemeModeContext } from '../context/ThemeModeContext'
 import { FaExclamation, FaCalendar, FaMinus, FaPlus } from 'react-icons/fa'
 
 const SolutionPage = ({solution}) => {
+  const { darkMode } = useContext(ThemeModeContext);
+
   const [openQuestion, setOpenQuestion] = useState(null);
   
   const toggleQuestion = (index) => {
@@ -34,11 +37,11 @@ const SolutionPage = ({solution}) => {
         <div className="w-full xl:w-4/5 h-fit flex flex-col justify-start items-center">
 
           {/* Description Section */}
-          <div id='about' className="relative bg-white text-gray-800 text-left py-20 px-4 sm:px-16 border-b-2 border-blue-500">
+          <div id='about' className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white text-left py-20 px-4 sm:px-16 border-b-2 border-blue-500 dark:border-blue-800 transition-colors duration-300">
             <div className="absolute inset-0 opacity-40">
-              <div className="relative left-8 top-13 w-20 h-12 bg-blue-500" />
+              <div className="relative left-8 top-13 w-20 h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
             </div>
-            <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 mb-6">
+            <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 dark:text-blue-400 mb-6 transition-colors duration-300">
               A Brief Overview of Our Solution
             </h4>
             <p className="text-md lg:text-lg xl:text-xl">
@@ -47,18 +50,18 @@ const SolutionPage = ({solution}) => {
           </div>
 
           {/* Features Section */}
-          <div id='about' className="relative bg-white text-gray-800 text-left py-20 px-4 sm:px-16">
+          <div className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white text-left py-20 px-4 sm:px-16 transition-colors duration-300">
             <div className="absolute inset-0 opacity-40">
-              <div className="relative left-8 top-13 w-28 h-12 bg-blue-500" />
+              <div className="relative left-8 top-13 w-28 h-12 bg-blue-500 dark:bg-blue-400 transition-colors duration-300" />
             </div>
-            <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 mb-6">
+            <h4 className="text-xl lg:text-2xl xl:text-3xl text-blue-500 dark:text-blue-400 mb-6 transition-colors duration-300">
               How Does It Works?
             </h4>
             <p className="text-md lg:text-lg xl:text-xl">
                 {solution.systemFunctionality}
             </p>
 
-            <div className="mt-6 sm:mt-16 flex items-start gap-1 px-6 py-4 bg-blue-400 text-white rounded-md">
+            <div className="mt-6 sm:mt-16 flex items-start gap-1 px-6 py-4 bg-blue-400 dark:bg-blue-950 text-white rounded-md transition-colors duration-300">
               <FaExclamation className='mt-0.5' /> 
               <p className="text-sm italic text-left">
                 {solution.expectedTimeline}
@@ -126,10 +129,10 @@ const SolutionPage = ({solution}) => {
         </div>
 
         {/* Appointment Booking Button */}
-        <div className="relative w-1/5 bg-white text-center p-2 hidden xl:flex justify-center items-start">
-          <div className="sticky top-28 p-3 flex flex-col justify-start items-center gap-2 border border-blue-500 rounded-lg">
+        <div className="relative w-1/5 bg-white dark:bg-black text-center p-2 hidden xl:flex justify-center items-start transition-colors duration-300">
+          <div className="sticky top-28 bg-transparent dark:bg-gray-800 p-3 flex flex-col justify-start items-center gap-2 border border-blue-500 dark:border-gray-800 rounded-lg transition-colors duration-300">
             <img src={AppBookingImage ? AppBookingImage : ''} alt="Appointment Booking Image" className='rounded-lg' />
-            <Button variant='outline' icon={<FaCalendar />} className='w-full text-sm flex items-center gap-2'>
+            <Button variant={darkMode ? 'light' : 'outline'} icon={<FaCalendar />} className={`w-full text-sm flex items-center gap-2 ${darkMode ? 'border-2 border-transparent' : ''}`}>
               Book an Appointment
             </Button>
           </div>
