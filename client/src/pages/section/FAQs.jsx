@@ -10,7 +10,7 @@ const FAQs = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-800 text-white">
+    <section className="py-16 bg-gray-100 dark:bg-gray-800 text-black dark:text-white transition-colors duration-300">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
         {faqs.map((section, sectionIndex) => (
@@ -22,19 +22,19 @@ const FAQs = () => {
                 return (
                   <div
                     key={index}
-                    className={`mb-4 cursor-pointer border-white rounded-lg border-2 transition-all duration-300 ease-in-out ${
-                      isOpen ? 'bg-blue-500 text-white' : ''
-                    } p-4 rounded-lg hover:bg-blue-500 hover:text-white`}
+                    onClick={() => toggleQuestion(`${sectionIndex}-${index}`)}
+                    className={`mb-4 cursor-pointer border-gray-800 dark:border-white rounded-lg border-2 transition-all duration-300 ease-in-out ${
+                      isOpen ? 'bg-blue-500 dark:bg-blue-800 text-white' : ''
+                    } p-4 rounded-lg hover:bg-blue-500 dark:hover:bg-blue-800 group`}
                   >
                     <div
-                      onClick={() => toggleQuestion(`${sectionIndex}-${index}`)}
                       className="flex justify-between items-center cursor-pointer"
                     >
-                      <h4 className="text-lg font-medium text-white">{faq.question}</h4>
+                      <h4 className={`text-lg font-medium ${isOpen ? 'text-white' : 'text-gray-800 dark:text-white group-hover:text-white'} transition-colors duration-300`}>{faq.question}</h4>
                       {isOpen ? (
-                        <FaMinus className="text-white" />
+                        <FaMinus className={isOpen ? 'text-white' : 'text-gray-800 dark:text-white group-hover:text-white'} />
                       ) : (
-                        <FaPlus className="text-white" />
+                        <FaPlus className="text-gray-800 dark:text-white group-hover:text-white" />
                       )}
                     </div>
                     <div
@@ -42,7 +42,7 @@ const FAQs = () => {
                         isOpen ? "max-h-screen mt-4 border-t-2 border-white pt-2" : "max-h-0"
                       }`}
                     >
-                      <p className="text-sm text-gray-200">{faq.answer}</p>
+                      <p className="text-sm text-white">{faq.answer}</p>
                     </div>
                   </div>
                 );
