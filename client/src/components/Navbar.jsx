@@ -62,7 +62,7 @@ const Navbar = () => {
             >
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
-            <Button variant={darkMode ? "primary" : "outline"} isBookingButton={true}>
+            <Button variant={darkMode ? "primary" : "outline"} isBookingButton={true} className={darkMode ? 'border-2 border-transparent' : ''}>
               Book Appointment
             </Button>
           </div>
