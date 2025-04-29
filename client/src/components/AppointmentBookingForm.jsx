@@ -25,7 +25,6 @@ const AppointmentBookingForm = () => {
     name: "",
     email: "",
     phone: "",
-    service: "",
   });
 
   const hours = [
@@ -34,8 +33,31 @@ const AppointmentBookingForm = () => {
     "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM",
   ];
 
-  const handleBooking = () => {
-    alert(clientData.name + " - " + clientData.email + " - " + clientData.phone + " - " + clientData.service + " - " + selectedDate + " - " + selectedHour)
+  const handleBooking = async () => {
+    // Format the date to YYYY-MM-DD
+    const formattedDate = format(selectedDate, "yyyy-MM-dd");
+
+    // Prepare the request body
+    const requestBody = {
+      name: clientData.name,
+      email: clientData.email,
+      phone: clientData.phone,
+      appointmentDate: formattedDate,
+      appointmentTime: selectedHour,
+    };
+
+    try {
+      // Make the POST request
+      const response = await axios.post("http://localhost:5100/appointments", requestBody);
+
+      // Handle success
+      console.log("Appointment booked successfully:", response.data);
+      alert("Appointment booked successfully!");
+    } catch (error) {
+      // Handle error
+      console.error("Error booking appointment:", error);
+      alert("Failed to book the appointment. Please try again.");
+    }
   }
 
   const handleDateClick = (day) => {
@@ -43,7 +65,16 @@ const AppointmentBookingForm = () => {
   };
 
   const handleHourClick = (hour) => {
-    setSelectedHour(hour);
+    const [time, modifier] = hour.split(" "); // Split into time and AM/PM
+    let [hours, minutes] = time.split(":"); // Split time into hours and minutes
+
+    if (modifier === "PM" && hours !== "12") {
+      hours = String(parseInt(hours, 10) + 12); // Convert PM hours to 24-hour format
+    } else if (modifier === "AM" && hours === "12") {
+      hours = "00"; // Convert 12 AM to 00
+    }
+
+    setSelectedHour(`${hours}:${minutes}:00`); // Add seconds to the time
   };
 
   const handleInputChange = (e) => {
