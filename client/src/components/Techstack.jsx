@@ -6,9 +6,10 @@ const Techstack = () => {
   return (
     <section className="py-12 bg-blue-500 dark:bg-blue-900 transition-colors duration-300">
       <div className="px-6">
-        <h2 className="text-xl lg:text-2xl xl:text-4xl font-bold text-white text-center mb-8">
-          Built From The Ground Up With
-          <strong className='italic underline'> The Best Technologies</strong>
+        <h2 className="text-xl lg:text-2xl xl:text-4xl text-white text-center mb-8">
+          Built From The Ground Up With <br/>
+          <strong className='italic mt-2'>The Best Technologies</strong>
+          <hr className='mt-2' />
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-center">
           {techstack.map((tech) => (
