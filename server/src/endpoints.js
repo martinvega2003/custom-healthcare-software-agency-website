@@ -5,7 +5,7 @@ const router = Router();
 
 // Endpoint to store appointment booking
 router.post("/appointments", async (req, res) => {
-  const { name, email, phone, service, appointmentDate, appointmentTime } = req.body;
+  const { name, email, phone, appointmentDate, appointmentTime } = req.body;
 
   // Validate required fields
   if (!name || !email || !appointmentDate || !appointmentTime) {
@@ -14,10 +14,10 @@ router.post("/appointments", async (req, res) => {
 
   try {
     const result = await pool.query(`
-      INSERT INTO appointments (name, email, phone, service, appointment_date, appointment_time)
-      VALUES ($1, $2, $3, $4, $5, $6)
+      INSERT INTO appointments (name, email, phone, appointment_date, appointment_time)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *;
-    `, [name, email, phone, service, appointmentDate, appointmentTime]);
+    `, [name, email, phone, appointmentDate, appointmentTime]);
 
     res.status(201).json({
       message: "Appointment booked successfully",

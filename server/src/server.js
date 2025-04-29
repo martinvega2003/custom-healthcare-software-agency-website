@@ -4,8 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Start server
-const PORT = process.env.PORT || 5001;
+const PORT = 5000;
 
-app.listen(() => {
+app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
