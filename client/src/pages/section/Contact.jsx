@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import bgImageUrl from "../../images/hero.webp";
 import Button from "../../components/Button";
 import { ThemeModeContext } from "../../context/ThemeModeContext";
@@ -6,6 +7,35 @@ import { ThemeModeContext } from "../../context/ThemeModeContext";
 const Contact = () => {
 
   const { darkMode } = useContext(ThemeModeContext); // Access dark mode context for button variants
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone_number: "",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+
+    try {
+      const response = await axios.post("http://localhost:5100/messages", formData);
+
+      // Handle success
+      console.log("Message sent successfully:", response.data);
+      alert("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", phone_number: "", message: "" }); // Clear the form
+    } catch (error) {
+      console.error("Error sending message:", error);
+      // Check if the error has a response from the server
+      alert(error.response?.data?.msg || "Failed to send the message. Please try again."); 
+    }
+  };
 
   return (
     <section id='contact' className="relative py-16">
@@ -31,26 +61,38 @@ const Contact = () => {
           <form className="space-y-4">
             <div className="grid grid-cols-1 gap-4">
               <input
+                name="name"
                 type="text"
+                value={formData.name}
                 placeholder="Name"
+                onChange={handleInputChange}
                 className="dark:text-gray-300 placeholder:text-gray-500 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 w-full transition-colors duration-300"
               />
               <input
+                name="email"
                 type="email"
+                value={formData.email}
                 placeholder="Email"
+                onChange={handleInputChange}
                 className="dark:text-gray-300 placeholder:text-gray-500 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 w-full transition-colors duration-300"
               />
               <input
+                name="phone_number"
                 type="text"
+                value={formData.phone_number}
                 placeholder="Phone Number"
+                onChange={handleInputChange}
                 className="dark:text-gray-300 placeholder:text-gray-500 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 w-full transition-colors duration-300"
               />
             </div>
             <textarea
+              name="message"
+              value={formData.message}
               placeholder="Message"
+              onChange={handleInputChange}
               className="dark:text-gray-300 placeholder:text-gray-500 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 w-full h-32 transition-colors duration-300"
             />
-            <Button variant={darkMode ? 'light' : 'primary'} type="submit" className="w-full">
+            <Button onClick={handleSubmit} variant={darkMode ? 'light' : 'primary'} type="submit" className="w-full">
               Submit
             </Button>
           </form>
