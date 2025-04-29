@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import axios from "axios"
 import {
   format,
   addMonths,
@@ -28,14 +29,24 @@ const AppointmentBookingForm = () => {
   });
 
   const hours = [
-    "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM",
-    "11:30 AM", "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM",
-    "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM",
+    "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM",
+    "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM",
+    "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM",
   ];
 
   const handleBooking = async () => {
     // Format the date to YYYY-MM-DD
     const formattedDate = format(selectedDate, "yyyy-MM-dd");
+
+    // Format Hour
+    const [time, modifier] = selectedHour.split(" "); // Split into time and AM/PM
+    let [hour, minutes] = time.split(":"); // Split time into hours and minutes
+
+    if (modifier === "PM" && hour !== "12") {
+      hour = String(parseInt(hour, 10) + 12); // Convert PM hours to 24-hour format
+    } else if (modifier === "AM" && hour === "12") {
+      hour = "00"; // Convert 12 AM to 00
+    }
 
     // Prepare the request body
     const requestBody = {
@@ -43,7 +54,7 @@ const AppointmentBookingForm = () => {
       email: clientData.email,
       phone: clientData.phone,
       appointmentDate: formattedDate,
-      appointmentTime: selectedHour,
+      appointmentTime: `${hour}:${minutes}:00`,
     };
 
     try {
@@ -56,7 +67,9 @@ const AppointmentBookingForm = () => {
     } catch (error) {
       // Handle error
       console.error("Error booking appointment:", error);
-      alert("Failed to book the appointment. Please try again.");
+      alert(JSON.stringify(requestBody))
+      // Check if the error has a response from the server
+      alert(error.response?.data?.msg || "Failed to book the appointment. Please try again."); // Generic error message
     }
   }
 
@@ -65,16 +78,7 @@ const AppointmentBookingForm = () => {
   };
 
   const handleHourClick = (hour) => {
-    const [time, modifier] = hour.split(" "); // Split into time and AM/PM
-    let [hours, minutes] = time.split(":"); // Split time into hours and minutes
-
-    if (modifier === "PM" && hours !== "12") {
-      hours = String(parseInt(hours, 10) + 12); // Convert PM hours to 24-hour format
-    } else if (modifier === "AM" && hours === "12") {
-      hours = "00"; // Convert 12 AM to 00
-    }
-
-    setSelectedHour(`${hours}:${minutes}:00`); // Add seconds to the time
+    setSelectedHour(hour); // Add seconds to the time
   };
 
   const handleInputChange = (e) => {
