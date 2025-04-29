@@ -3,6 +3,7 @@ import axios from "axios";
 import bgImageUrl from "../../images/hero.webp";
 import Button from "../../components/Button";
 import { ThemeModeContext } from "../../context/ThemeModeContext";
+import { toast } from "react-toastify";
 
 const Contact = () => {
 
@@ -28,12 +29,12 @@ const Contact = () => {
 
       // Handle success
       console.log("Message sent successfully:", response.data);
-      alert("Your message has been sent successfully!");
+      toast.success("Your message has been sent successfully!");
       setFormData({ name: "", email: "", phone_number: "", message: "" }); // Clear the form
     } catch (error) {
       console.error("Error sending message:", error);
       // Check if the error has a response from the server
-      alert(error.response?.data?.msg || "Failed to send the message. Please try again."); 
+      toast.error(error.response?.data?.msg || "Failed to send the message. Please try again."); 
     }
   };
 

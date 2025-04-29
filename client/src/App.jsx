@@ -8,12 +8,15 @@ import Footer from './components/Footer'
 import SolutionPage from './pages/SolutionPage'
 import BookingPage from './pages/Bookingpage'
 import ScrollToTop from './components/ScrollToTop'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <ThemeModeProvider>
+        <ToastContainer position="top-right" autoClose={3000} />
         <ScrollToTop />
         <Navbar />
           <Routes>

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios"
+import { toast } from "react-toastify";
 import {
   format,
   addMonths,
@@ -63,13 +64,12 @@ const AppointmentBookingForm = () => {
 
       // Handle success
       console.log("Appointment booked successfully:", response.data);
-      alert("Appointment booked successfully!");
+      toast.success("Appointment booked successfully!");
     } catch (error) {
       // Handle error
       console.error("Error booking appointment:", error);
-      alert(JSON.stringify(requestBody))
       // Check if the error has a response from the server
-      alert(error.response?.data?.msg || "Failed to book the appointment. Please try again."); // Generic error message
+      toast.error(error.response?.data?.msg || "Failed to book the appointment. Please try again."); // Generic error message
     }
   }
 
