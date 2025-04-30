@@ -11,6 +11,7 @@ import Solutions from './section/Solutions'
 import Contact from './section/Contact'
 import FAQs from './section/FAQs'
 import AppointmentBookingForm from '../components/AppointmentBookingForm'
+import CTA from './section/CTA'
 
 const Mainpage = () => {
   return (
@@ -19,6 +20,7 @@ const Mainpage = () => {
       <Techstack />
       <About />
       <Offer />
+      <CTA />
       <Process />
       <Solutions />
       <Contact />
