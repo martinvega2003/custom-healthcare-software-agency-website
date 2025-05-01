@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Padding to match Navbar's height */
+body {
+  padding-top: 70px;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  body {
+      padding-top: 100px;
+  }
+}
