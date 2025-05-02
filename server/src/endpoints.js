@@ -3,6 +3,12 @@ import { Router } from "express";
 
 const router = Router();
 
+//Testing route
+router.get("/", (req, res) => {
+  res.send("Backend is running.");
+});
+
+
 // Endpoint to store appointment booking
 router.post("/appointments", async (req, res) => {
   const { name, email, phone, appointmentDate, appointmentTime } = req.body;
