@@ -5,7 +5,7 @@ import { solutionsData as solutions } from './data/solutionsData.js'
 import Navbar from './components/Navbar'
 import Mainpage from './pages/Mainpage'
 import Footer from './components/Footer'
-import SolutionPage from './pages/SolutionPage'
+import SolutionPage from './pages/Solutionpage'
 import BookingPage from './pages/Bookingpage'
 import ScrollToTop from './components/ScrollToTop'
 import { ToastContainer } from "react-toastify";
