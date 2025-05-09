@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CTA = () => {
   return (
@@ -13,12 +14,12 @@ const CTA = () => {
           <p className="text-blue-200 text-lg lg:text-xl mb-6">
             Book your free initial consultation and let’s turn your idea into a working solution — with no upfront cost.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/booking"
             className="bg-white hover:bg-blue-100 dark:bg-blue-800 dark:hover:bg-blue-900 text-blue-700 dark:text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300"
           >
             Book a Free Consultation
-          </a>
+          </Link>
         </div>
       </div>
     </section>
