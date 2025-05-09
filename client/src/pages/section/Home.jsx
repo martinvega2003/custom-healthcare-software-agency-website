@@ -45,8 +45,8 @@ const Home = ({ heading, subheading, image }) => {
             transition={{ duration: 1, delay: 0.2 }}
           >
             {subheading || 
-              <p>Get the tool you need built for <strong>free</strong>. Pay monthly
-              when you use it and cancel any time, no strings attached.</p> 
+              <>Get the tool you need built for <strong>free</strong>. Pay monthly
+              when you use it and cancel any time, no strings attached.</>
             }
           </motion.p>
           <motion.div

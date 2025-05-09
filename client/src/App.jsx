@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeModeProvider } from './context/ThemeModeContext'
-import { solutionsData as solutions } from './data/solutionsData'
+import { solutionsData as solutions } from './data/solutionsData.js'
 import Navbar from './components/Navbar'
 import Mainpage from './pages/Mainpage'
 import Footer from './components/Footer'

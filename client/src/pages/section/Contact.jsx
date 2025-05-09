@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
+import api from "../../API/api";
 import bgImageUrl from "../../images/hero.webp";
 import Button from "../../components/Button";
 import { ThemeModeContext } from "../../context/ThemeModeContext";
@@ -25,7 +25,7 @@ const Contact = () => {
     e.preventDefault(); 
 
     try {
-      const response = await axios.post("http://localhost:5100/messages", formData);
+      const response = await api.post("/messages", formData);
 
       // Handle success
       console.log("Message sent successfully:", response.data);

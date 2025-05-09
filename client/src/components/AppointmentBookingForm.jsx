@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import axios from "axios"
+import api from "../API/api";
 import { toast } from "react-toastify";
 import {
   format,
@@ -60,7 +60,7 @@ const AppointmentBookingForm = () => {
 
     try {
       // Make the POST request
-      const response = await axios.post("http://localhost:5100/appointments", requestBody);
+      const response = await api.post("/appointments", requestBody);
 
       // Handle success
       console.log("Appointment booked successfully:", response.data);
